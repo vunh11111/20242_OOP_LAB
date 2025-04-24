@@ -1,0 +1,29 @@
+
+Question 1 (Part 10): If you create a constructor method to build a DVD by title then create a constructor method to build a DVD by category. Does JAVA allow you to do this?
+Answer 1: Nếu cả hai constructor chỉ có tham số String, Java sẽ không biết constructor nào cần gọi. Để phân biệt, cần đảm bảo số lượng tham số truyền vào của 2 constructor đó khác nhau, hoặc các kiểu dữ liệu tham số truyền vào có sự khác nhau.
+
+Question 2 (Part 14): Try to add a method addDigitalVideoDisc which allows to pass an arbitrary number of arguments for dvd. Compared to an array parameter. What do you prefer in this case?
+Answer 2:  
+ 	//Method addDigitalVideoDisc() which allows to pass an arbitrary number of arguments for dvd.
+//    public void addDigitalVideoDisc(DigitalVideoDisc... dvds) {
+//        for (DigitalVideoDisc dvd : dvds) {
+//            if (qtyOrdered < MAX_NUMBERS_ORDERED) {
+//                itemsOrdered[qtyOrdered++] = dvd;
+//                System.out.println("Added: " + dvd.getTitle());
+//            } else {
+//                System.out.println("The order is full! Cannot add " + dvd.getTitle());
+//                break; // Stop adding if order is full
+//            }
+//        }
+//    }
+=> Khi gọi phương thức với varargs, ta có thể truyền trực tiếp nhiều đối tượng DigitalVideoDisc mà không cần tạo mảng trước. Ngoài ra, varargs cho phép truyền từ 0 đến N đối số, trong khi khi dùng mảng, người gọi phải tạo mảng dù có thể chỉ thêm 1 DVD.
+
+Question 3 (Part 15): After the call of swap(jungleDVD, cinderellaDVD) why does the title of these two objects still remain? After the call of changeTitle(jungleDVD, cinderellaDVD.getTitle()) why is the title of the JungleDVD changed?
+Answer 3: 
+-- swap() không thay đổi giá trị thực sự của jungleDVD và cinderellaDVD, chỉ có tham số trong phương thức thay đổi, còn tham chiếu bên ngoài vẫn giữ nguyên.
+-- changeTitle() thay đổi thuộc tính bên trong đối tượng, vì nó thao tác trực tiếp lên vùng nhớ của DigitalVideoDisc. Nhưng việc tạo đối tượng mới không ảnh hưởng đến jungleDVD vì chỉ dvd thay đổi tham chiếu, còn jungleDVD vẫn trỏ đến đối tượng cũ.
+
+Question 4 (Part 15): Is JAVA a Pass by Value or a Pass by Reference programming language?
+Answer 4: JAVA is always a pass by value programming language.
+
+
